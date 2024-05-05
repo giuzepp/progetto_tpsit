@@ -1,0 +1,62 @@
+/* Stile per il body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Stile per l'header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Stile per la tabella */
+table {
+    width: 90%; 
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: 5%; 
+    margin-right: 5%;
+    text-align: center;
+}
+
+th {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+td:first-child {
+    font-weight: bold;
+}
+
+td:nth-child(7) {
+    font-style: italic;
+}
+
+td:last-child {
+    text-align: center;
+}
+
+
+table tr:hover {
+    background-color: #d3ffc6; 
+}
+
+table tr:hover td {
+    color: #333; 
+}
