@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Concessionaria</title>
+        
+        <link rel="stylesheet" href="../static/style.css"> 
+        <link rel="icon" type="image/png" href="../static/auto.png">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                $.ajax({
+                url: "http://127.0.0.1/json?"
+                }).then(function(data) {
+                    /*alert(JSON.stringify(data.lista))*/
+                loadList(data);
+                });
+            });
+
+            function loadList(data){
+            var table = $("#customers tbody");
+            $.each(data.lista, function(i, elem){
+                var row = $("<tr>");
+                row.append("<td>"+elem.Country+"</td>");
+                row.append("<td>"+elem.Mfr_CommonName+"</td>");
+                row.append("<td>"+elem.Mfr_Name+"</td>");
+                row.append("<td>"+elem.Year_Founded+"</td>");
+                row.append("<td>"+elem.Founder+"</td>");
+                row.append("<td>"+elem.Headquarters+"</td>");
+                row.append("<td>"+elem.Popular_Model+"</td>");
+                table.append(row);
+            });
+        }
+        </script>
+
+    </head>
+
+    <body>
+        
+        <header>
+            <h1>Catalogo Macchine</h1>
+        </header>
+        
+        <!-- header della tabella -->
+        <table id="customers">    
+            <tr>
+
+                <th>Country</th>
+                <th>Mfr_CommonName</th>
+                <th>Mfr_Name</th>
+                <th>Year_Founded</th>
+                <th>Founder</th>
+                <th>Headquarters</th>
+                <th>Popular_Model</th>
+                
+            </tr>
+
+        </table>
+        <br><br>
+        <form action="/json">
+            <button type="submit" style="margin-left: 45%;">FILE JSON</button>
+        </form>
+    </body>
+</html>
